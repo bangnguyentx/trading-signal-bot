@@ -1,0 +1,345 @@
+:root {
+    --primary: #1e3a8a;
+    --secondary: #3b82f6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark: #1f2937;
+    --light: #f8fafc;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --text: #374151;
+    --text-light: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: var(--dark);
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.logo p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+/* Control Panel */
+.control-panel {
+    background: var(--card-bg);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid var(--border);
+    background: white;
+    color: var(--text);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+.auto-refresh label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* Signals Table */
+.signals-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.signals-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.signals-table th {
+    background: var(--primary);
+    color: white;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.signals-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.signal-row {
+    transition: background-color 0.3s ease;
+}
+
+.signal-row:hover {
+    background-color: #f8fafc;
+}
+
+.signal-row.new-signal {
+    animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: #dcfce7; }
+    100% { background-color: transparent; }
+}
+
+/* Signal Types */
+.signal-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-momentum { background: #dbeafe; color: #1e40af; }
+.badge-breakout { background: #fef3c7; color: #92400e; }
+.badge-trend { background: #dcfce7; color: #166534; }
+.badge-breakout-trading { background: #fce7f3; color: #be185d; }
+
+/* Direction Colors */
+.direction-long {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.direction-short {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+/* Confidence Bars */
+.confidence-bar {
+    width: 80px;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.confidence-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.confidence-high { background: var(--success); }
+.confidence-medium { background: var(--warning); }
+.confidence-low { background: var(--danger); }
+
+/* Actions */
+.action-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-view {
+    background: var(--secondary);
+    color: white;
+}
+
+.btn-view:hover {
+    background: #2563eb;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-light);
+}
+
+.loading i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Status Bar */
+.status-bar {
+    background: var(--dark);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-item i {
+    color: var(--secondary);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.close:hover {
+    color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+    
+    .control-panel {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .filters {
+        justify-content: center;
+    }
+    
+    .signals-table {
+        font-size: 0.8rem;
+    }
+    
+    .signals-table th,
+    .signals-table td {
+        padding: 8px 4px;
+    }
+}
