@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: trading-signal-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 18.17.0
+    healthCheckPath: /
+    autoDeploy: true
+
+  # Uncomment if you want a separate scanner service
+  # - type: worker
+  #   name: trading-scanner
+  #   env: node
+  #   plan: free
+  #   buildCommand: npm install
+  #   startCommand: npm run scanner
+  #   envVars:
+  #     - key: NODE_ENV
+  #       value: production
