@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Trading Signals - Binance Futures</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h1>Quantum Trading Signals</h1>
+                        <p>Binance Futures • Real-time Signals • 24/7 Monitoring</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="totalSignals">0</span>
+                        <span class="stat-label">Total Signals</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="activeSignals">0</span>
+                        <span class="stat-label">Active</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Signals</button>
+                <button class="filter-btn" data-filter="momentum">Momentum Master</button>
+                <button class="filter-btn" data-filter="breakout">Breakout Pro</button>
+                <button class="filter-btn" data-filter="trend">Trend Following</button>
+                <button class="filter-btn" data-filter="breakout-trading">Breakout Trading</button>
+            </div>
+            <div class="auto-refresh">
+                <label>
+                    <input type="checkbox" id="autoRefresh" checked>
+                    Auto Refresh (10s)
+                </label>
+            </div>
+        </div>
+
+        <!-- Signals Table -->
+        <div class="signals-container">
+            <table class="signals-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Combo Type</th>
+                        <th>Signal</th>
+                        <th>Entry</th>
+                        <th>Stop Loss</th>
+                        <th>Take Profit</th>
+                        <th>Confidence</th>
+                        <th>Time Found</th>
+                        <th>Expires In</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="signalsBody">
+                    <!-- Signals will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <i class="fas fa-sync fa-spin"></i>
+            <span>Scanning Binance Futures...</span>
+        </div>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <div class="status-item">
+                <i class="fas fa-satellite-dish"></i>
+                <span id="statusText">Connected to Binance API</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-clock"></i>
+                <span id="lastUpdate">Last update: --</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-coins"></i>
+                <span>Monitoring 30 coins</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Signal Details Modal -->
+    <div id="signalModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Signal Details</h3>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
